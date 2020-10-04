@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://assets/player.png" type="Texture" id=1]
-[ext_resource path="res://src/Actors/Player.gd" type="Script" id=2]
+[ext_resource path="res://src/Actors/Player.cs" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 40, 40 )
@@ -12,8 +12,6 @@ extents = Vector2( 57.677, 40.4511 )
 [node name="Player" type="KinematicBody2D"]
 collision_mask = 8
 script = ExtResource( 2 )
-gravity = 800.0
-speed = Vector2( 800, 1000 )
 
 [node name="player" type="Sprite" parent="."]
 position = Vector2( 0, -48 )
@@ -43,5 +41,5 @@ collision_mask = 2147483650
 modulate = Color( 0.00392157, 0.0313726, 0.203922, 1 )
 position = Vector2( 0, -40 )
 shape = SubResource( 2 )
-[connection signal="area_entered" from="EnemyDetector" to="." method="_on_EnemyDetector_area_entered"]
-[connection signal="body_entered" from="EnemyDetector" to="." method="_on_EnemyDetector_body_entered"]
+[connection signal="area_entered" from="EnemyDetector" to="." method="OnEnemyDetectorAreaEntered"]
+[connection signal="body_entered" from="EnemyDetector" to="." method="OnEnemyDetectorBodyEntered"]
