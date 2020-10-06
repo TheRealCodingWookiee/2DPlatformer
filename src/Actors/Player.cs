@@ -10,7 +10,7 @@ public class Player : Actor
 
     public void OnEnemyDetectorAreaEntered(Area2D area)
     {
-        this.Velocity = CalculateStompVelocity(this.Velocity, StompImpulse);
+        this.velocity = CalculateStompVelocity(this.velocity, StompImpulse);
     }
 
     public void OnEnemyDetectorBodyEntered(PhysicsBody2D body)
@@ -22,14 +22,14 @@ public class Player : Actor
     {
         base._PhysicsProcess(delta);
 
-        bool isJumpInterrupted = Input.IsActionJustReleased("jump") && this.Velocity.y < 0.0;
-        Vector2 direction = getDirection();
+        bool isJumpInterrupted = Input.IsActionJustReleased("jump") && this.velocity.y < 0.0;
+        Vector2 direction = GetDirection();
 
-        this.Velocity = CalculateMoveVelocity(this.Velocity, this.Speed, direction, isJumpInterrupted);        
-        this.Velocity = MoveAndSlide(this.Velocity, this.FloorNormal);
+        this.velocity = CalculateMoveVelocity(this.velocity, this.speed, direction, isJumpInterrupted);        
+        this.velocity = MoveAndSlide(this.velocity, this.floorNormal);
     }
 
-    public Vector2 getDirection()
+    public Vector2 GetDirection()
     {
         float xDirection = Input.GetActionStrength("move_right") - Input.GetActionStrength("move_left");
         float yDirection = Input.GetActionStrength("jump") != 0 && IsOnFloor() ? -1.0f : 1.0f;
@@ -43,7 +43,7 @@ public class Player : Actor
     {
         Vector2 velocity = linearVelocity;
         velocity.x = speed.x * direction.x;
-        velocity.y += this.Gravity * GetPhysicsProcessDeltaTime();
+        velocity.y += this.gravity * GetPhysicsProcessDeltaTime();
 
         if (direction.y == -1.0f)
         {
@@ -71,13 +71,4 @@ public class Player : Actor
         QueueFree();
     }
 
-    public double getStompImpulse()
-    {
-        return StompImpulse;
-    }
-
-    public void setStompImpulse(float impulse)
-    {
-        StompImpulse = impulse;
-    }
 }

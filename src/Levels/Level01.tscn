@@ -113,7 +113,7 @@ position = Vector2( 3840, 720 )
 position = Vector2( 3840, 888 )
 
 [node name="Portal2D" parent="." instance=ExtResource( 6 )]
-position = Vector2( 5424, 936 )
-next_scene = ExtResource( 7 )
+position = Vector2( 3456, 544 )
+nextScene = ExtResource( 7 )
 
 [editable path="Player"]

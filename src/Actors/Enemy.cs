@@ -3,27 +3,27 @@ using System;
 
 public class Enemy : Actor
 {
-    private int Score;
+    private int score;
     public override void _Ready()
     {
         SetPhysicsProcess(false);
-        Vector2 enemyVelocity = new Vector2(-this.Speed.x, 0.0f);
+        Vector2 enemyVelocity = new Vector2(-this.speed.x, 0.0f);
         GD.Print(enemyVelocity);
-        this.Velocity = enemyVelocity;
+        this.velocity = enemyVelocity;
     }
 
     public override void _PhysicsProcess(float delta)
     {
         base._PhysicsProcess(delta);
 
-        this.Velocity.y += this.Gravity * delta;
+        this.velocity.y += this.gravity * delta;
 
         if (IsOnWall())
         {
-            this.Velocity.x *= -1;
+            this.velocity.x *= -1;
         }
 
-        this.Velocity.y = MoveAndSlide(this.Velocity, this.FloorNormal).y;
+        this.velocity.y = MoveAndSlide(this.velocity, this.floorNormal).y;
     }
 
     public void _on_StompDetector_body_entered(PhysicsBody2D body)

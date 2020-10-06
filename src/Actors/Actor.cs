@@ -3,12 +3,12 @@ using System;
 
 public class Actor : KinematicBody2D
 {
-    public Vector2 FloorNormal = Vector2.Up;
+    public Vector2 floorNormal = Vector2.Up;
     [Export]
-    public float Gravity = 2000.0f;
+    public float gravity = 2000.0f;
     [Export]
-    public Vector2 Speed = new Vector2(300.0f, 1000.0f);
-    public Vector2 Velocity = Vector2.Zero;
+    public Vector2 speed = new Vector2(300.0f, 1000.0f);
+    public Vector2 velocity = Vector2.Zero;
 
     public virtual void Die()
     {
