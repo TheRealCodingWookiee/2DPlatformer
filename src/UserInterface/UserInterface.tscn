@@ -63,7 +63,7 @@ __meta__ = {
 margin_right = 174.0
 margin_bottom = 37.0
 text = "MainScreen"
-next_schene_path = "res://src/Screens/MainScreen.tscn"
+nextScenePath = "res://src/Screens/MainScreen.tscn"
 
 [node name="RetryButton" parent="PauseOverlay/PauseMenu" instance=ExtResource( 4 )]
 margin_top = 41.0
