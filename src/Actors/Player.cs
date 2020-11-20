@@ -6,7 +6,12 @@ public class Player : Actor
 
     [Export]
     private float StompImpulse = 1000.0f;
+    private Global global;
 
+    public override void _Ready()
+    {
+        global = GetNode<Global>("/root/Global");
+    }
 
     public void OnEnemyDetectorAreaEntered(Area2D area)
     {
@@ -67,7 +72,7 @@ public class Player : Actor
 
     public override void Die()
     {
-        //PlayerData.deaths += 1
+        global.Deaths += 1;
         QueueFree();
     }
 

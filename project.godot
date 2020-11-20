@@ -21,7 +21,7 @@ config/icon="res://icon.png"
 
 [autoload]
 
-PlayerData="*res://src/AutoLoad/PlayerData.tscn"
+Global="*res://src/AutoLoad/Global.cs"
 
 [input]
 

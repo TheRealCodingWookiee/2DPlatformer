@@ -4,11 +4,12 @@ using System;
 public class Enemy : Actor
 {
     private int score;
+    private Global global;
     public override void _Ready()
     {
         SetPhysicsProcess(false);
+        global = GetNode<Global>("/root/Global");
         Vector2 enemyVelocity = new Vector2(-this.speed.x, 0.0f);
-        GD.Print(enemyVelocity);
         this.velocity = enemyVelocity;
     }
 
@@ -42,7 +43,7 @@ public class Enemy : Actor
 
     public override void Die()
     {
-        //PlayerData.score += score;
+        global.Score += 10;
         base.Die();
     }
 }
