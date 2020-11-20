@@ -8,14 +8,9 @@
 
 config_version=4
 
-_global_script_classes=[ {
-"base": "KinematicBody2D",
-"class": "Actor",
-"language": "GDScript",
-"path": "res://src/Actors/Actor.gd"
-} ]
+_global_script_classes=[  ]
 _global_script_class_icons={
-"Actor": ""
+
 }
 
 [application]
@@ -26,11 +21,7 @@ config/icon="res://icon.png"
 
 [autoload]
 
-PlayerData="*res://src/AutoLoad/PlayerData.tscn"
-
-[display]
-
-window/size/fullscreen=true
+Global="*res://src/AutoLoad/Global.cs"
 
 [input]
 
